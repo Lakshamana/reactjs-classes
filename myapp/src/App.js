@@ -1,23 +1,24 @@
-import React from 'react';
+import React from 'react'
+import Ninjas from './Ninjas'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    ninjas: [
+      {name: 'Ryu', age: 30, belt: 'blue', id: 1},
+      {name: 'Jack', age: 25, belt: 'black', id: 2},
+      {name: 'Saitama', age: 22, belt: 'red', id: 3}
+    ]
+  }
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <h1>hello world!</h1>
+        </header>
+        <Ninjas ninjas={this.state.ninjas} />
+      </div>
+    );
+  }
 }
 
 export default App;
