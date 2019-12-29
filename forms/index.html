@@ -17,30 +17,26 @@
         name: 'Lakshamana',
         age: 30
       }
-      another = 'Another super value!'
 
-      onClick = e => {
-        console.log(this.state)
-        // this.state.age = 22 // Bad practice!
-        this.setState({
-          name: 'Guilherme', 
-          age: 22
-        }) // Use this approach instead!
-        console.log(this.state) // in order to get changes, use async/await approach
+      onChange = e => {
+        const name = e.target.value
+        console.log(name)
+        this.setState({name})
       }
 
-      onCopy(e) {
-        console.log('Try being original for once!')
+      onSubmit = e => {
+        e.preventDefault()
+        console.log({name: this.state.name})
       }
 
       render() {
         return (
           <div className="app-content">
-            <h1>Hey ninjas!</h1>
-            <p>My name is { this.state.name } and i'm { this.state.age }</p>
-            <p>Another data using another var: { this.another }</p>
-            <button onClick={this.onClick}>Click me</button>
-            <p onCopy={this.onCopy}>Copy this phrase!</p>
+            <p>My name is { this.state.name }</p>
+            <form onSubmit={this.onSubmit}>
+              <input type="text" onChange={this.onChange}/>
+              <button type="submit">Submit</button>
+            </form>
           </div>
         )
       }
